@@ -11,9 +11,7 @@ import { app } from "../config/firebase.config";
 import { useNavigate } from "react-router-dom";
 import { setUserNull } from "../context/actions/userActions";
 import { setCartOn } from "../context/actions/displayCartAction";
-import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import Location from "./Location";
-import LocationOn from "@mui/icons-material/LocationOn";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
@@ -37,10 +35,10 @@ const Header = () => {
   return (
     <header className="fixed  backdrop-blur-md z-50 inset-x-0 top-0 flex items-center justify-between px-12 md:px-20 py-6">
       <NavLink to={"/"} className="flex items-center justify-center gap-4">
-        <h1 className="text-3xl md:text-4xl  flex items-center justify-center gap-3 font-logo text-sky-500 italic">
-          Aqua Express
+        <h1 className="text-3xl md:text-4xl  flex items-center justify-center gap-3 font-logo text-sky-500 tracking-wide">
+          AquaExpress
         </h1>
-        <div>
+        <div className="-ml-3">
           <img src={DeliveryTruck} className="w-8" alt="" />
         </div>
         <div className="flex items-center justify-center gap-3">
@@ -128,7 +126,7 @@ const Header = () => {
                   </Link>
                   <Link
                     to={"/user-orders"}
-                    className="hover:text-red-500 text-xl text-black"
+                    className="hover:text-sky-500 text-xl text-black"
                   >
                     Orders
                   </Link>
@@ -152,7 +150,7 @@ const Header = () => {
             <NavLink to={"/login"}>
               <motion.div
                 {...buttonClick}
-                className="px-4 py-2 rounded-md shadow-md text-white bg-orange-500 border border-red-300 cursor-pointer"
+                className="px-4 py-2 rounded-md shadow-md text-white bg-sky-500 border border-red-300 cursor-pointer"
               >
                 Login
               </motion.div>

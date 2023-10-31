@@ -11,11 +11,11 @@ const Slider = () => {
   const [fruits, setFruits] = useState(null);
 
   useEffect(() => {
-    setFruits(products?.filter((data) => data.product_category === "burger"));
+    setFruits(products?.filter((data) => data.product_category === "bisleri"));
   }, [products]);
 
   return (
-    <div className="w-full pt-16">
+    <div className="w-full pt-10">
       <Swiper
         slidesPerView={4}
         centeredSlides={false}

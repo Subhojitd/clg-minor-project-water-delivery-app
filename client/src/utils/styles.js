@@ -5,28 +5,43 @@ export const isNotActiveStyles =
   "text-xl text-textColor hover:text-sky-500 px-4 py-2 duration-100 transition:all ease-in-out";
 
 export const statuses = [
-  { id: 1, title: "Biriyani", category: "biriyani" },
-  { id: 2, title: "Deserts", category: "deserts" },
-  { id: 3, title: "Burger", category: "burger" },
+  { id: 1, title: "Bisleri", category: "bisleri" },
+  { id: 2, title: "Aquafina", category: "aquafina" },
+  { id: 3, title: "Kinley", category: "kinley" },
   {
     id: 4,
-    title: "Veg",
-    category: "veg",
+    title: "Tata",
+    category: "tata",
   },
   {
     id: 5,
-    title: "Pizza",
-    category: "pizza",
+    title: "Evian",
+    category: "evian",
   },
   {
     id: 6,
-    title: "Chinese",
-    category: "chinese",
+    title: "Sparkling",
+    category: "sparkling",
+  },
+];
+export const quantities = [
+  { id: 11, title: "30 liters", quantity: "30 liters" },
+  { id: 12, title: "20 liters", quantity: "20 liters" },
+  { id: 13, title: "10 liters", quantity: "10 liters" },
+  {
+    id: 14,
+    title: "5 liters",
+    quantity: "5 liters",
   },
   {
-    id: 7,
-    title: "Kababs",
-    category: "kababs",
+    id: 15,
+    title: "2 liters",
+    quantity: "2 liters",
+  },
+  {
+    id: 16,
+    title: "1 liter",
+    quantity: "1 liter",
   },
 ];
 

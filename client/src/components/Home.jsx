@@ -1,10 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Delivery, HeroBg, WaterBottle } from "../assets/img";
-import { buttonClick, staggerFadeInOut } from "../animations";
-import { randomData } from "../utils/styles";
-import { fruit } from "../assets/img";
+import { Delivery, WaterBottle } from "../assets/img";
+import { buttonClick } from "../animations";
 const Home = () => {
+  const scrollToOffset = () => {
+    // Calculate the offset from the top of the page where you want to scroll to
+    const offset = 600; // Adjust this value as needed
+
+    // Scroll to the calculated offset with smooth behavior
+    window.scroll({
+      top: window.scrollY + offset,
+      behavior: "smooth",
+    });
+  };
   return (
     <motion.div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="flex flex-col items-start justify-start gap-6 ">
@@ -21,7 +29,7 @@ const Home = () => {
 
         <p className="text-[40px] text-headingColor md:text-[60px] font-sans font-extrabold tracking-wider">
           You will get the best quality water in{" "}
-          <span className="text-sky-600 font-logo">Aqua Express</span>
+          <span className="text-sky-500 font-logo ">AquaExpress</span>
         </p>
 
         <p className="text-textColor text-lg">
@@ -34,6 +42,7 @@ const Home = () => {
         </p>
         <motion.button
           {...buttonClick}
+          onClick={scrollToOffset}
           className="bg-gradient-to-bl from-sky-400 to-sky-600 px-4 py-2 rounded-xl
          text-white text-base font-semibold"
         >

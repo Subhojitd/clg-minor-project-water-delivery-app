@@ -9,19 +9,18 @@ const DBHome = () => {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
-  const biriyani = products?.filter(
-    (item) => item.product_category === "biriyani"
+  const bisleri = products?.filter(
+    (item) => item.product_category === "bisleri"
   );
-  const deserts = products?.filter(
-    (item) => item.product_category === "deserts"
+  const aquafina = products?.filter(
+    (item) => item.product_category === "aquafina"
   );
-  const pizza = products?.filter((item) => item.product_category === "pizza");
-  const burger = products?.filter((item) => item.product_category === "burger");
-  const kababs = products?.filter((item) => item.product_category === "kababs");
-  const chinese = products?.filter(
-    (item) => item.product_category === "chinese"
+  const kinley = products?.filter((item) => item.product_category === "kinley");
+  const tata = products?.filter((item) => item.product_category === "tata");
+  const evian = products?.filter((item) => item.product_category === "evian");
+  const sparkling = products?.filter(
+    (item) => item.product_category === "sparkling"
   );
-  const veg = products?.filter((item) => item.product_category === "veg");
 
   useEffect(() => {
     if (!products) {
@@ -41,26 +40,24 @@ const DBHome = () => {
               type="bar"
               data={{
                 labels: [
-                  "biriyani",
-                  "deserts",
-                  "pizza",
-                  "burger",
-                  "kababs",
-                  "chinese",
-                  "veg",
+                  "bisleri",
+                  "aquafina",
+                  "kinley",
+                  "tata",
+                  "evian",
+                  "sparkling",
                 ],
                 datasets: [
                   {
                     label: "Category Count",
                     backgroundColor: "#dc2626",
                     data: [
-                      biriyani?.length,
-                      deserts?.length,
-                      pizza?.length,
-                      burger?.length,
-                      kababs?.length,
-                      chinese?.length,
-                      veg?.length,
+                      bisleri?.length,
+                      aquafina?.length,
+                      kinley?.length,
+                      tata?.length,
+                      evian?.length,
+                      sparkling?.length,
                     ],
                   },
                 ],

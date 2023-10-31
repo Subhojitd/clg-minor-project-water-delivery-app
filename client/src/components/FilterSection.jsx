@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { staggerFadeInOut } from "../animations";
-import { IoFastFood } from "react-icons/io5";
 import { statuses } from "../utils/styles";
 import SliderCard from "./SliderCard";
+import { WaterBottle } from "../assets/img";
 
 const FilterSection = () => {
-  const [category, setCategory] = useState("veg");
+  const [category, setCategory] = useState("bisleri");
   const products = useSelector((state) => state.products);
 
   return (
@@ -17,11 +17,11 @@ const FilterSection = () => {
           <p className="text-2xl text-headingColor font-bold">
             Our Hot & Tasty Dishes
           </p>
-          <div className="w-40 h-1 rounded-md bg-orange-500"></div>
+          <div className="w-40 h-1.5 rounded-md bg-sky-500"></div>
         </div>
       </div>
 
-      <div className="w-full overflow-x-scroll pt-6 flex icon justify-center gap-6 py-8">
+      <div className="w-full  pt-6 flex flex-wrap items-center justify-center gap-6 py-8">
         {statuses &&
           statuses.map((data, i) => (
             <FilterCard
@@ -32,7 +32,7 @@ const FilterSection = () => {
             />
           ))}
       </div>
-
+      <div className="w-full h-1 rounded-md bg-gray-700"></div>
       <div className=" w-full flex items-center justify-center flex-wrap gap-14 mt-12">
         {products &&
           products
@@ -52,19 +52,15 @@ export const FilterCard = ({ data, index, category, setCategory }) => {
       onClick={() => setCategory(data.category)}
       {...staggerFadeInOut(index)}
       className={`group w-28 min-w-[128px] cursor-pointer rounded-md py-6 ${
-        category == data.category ? "bg-orange-500" : "bg-primary"
-      } hover:bg-orange-500 shadow-md flex flex-col items-center justify-center gap-4 `}
+        category == data.category ? "bg-sky-500" : "bg-primary"
+      } hover:bg-sky-500 shadow-md flex flex-col items-center justify-center gap-4 `}
     >
       <div
-        className={`w-10 h-10 rounded-full shadow-md flex items-center justify-center group-hover:bg-primary ${
-          category === data.category ? "bg-primary" : "bg-orange-500"
+        className={`w-12 h-12 rounded-full shadow-md flex items-center justify-center group-hover:bg-primary ${
+          category === data.category ? "bg-primary" : ""
         }`}
       >
-        <IoFastFood
-          className={`${
-            category === data.category ? "text-orange-500" : "text-primary"
-          } group-hover:text-orange-500`}
-        />
+        <img src={WaterBottle} className="w-8" alt="" />
       </div>
       <p
         className={`text-xl font-semibold ${

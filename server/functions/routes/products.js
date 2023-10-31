@@ -14,6 +14,7 @@ router.post("/create", async (req, res) => {
       productId: id,
       product_name: req.body.product_name,
       product_category: req.body.product_category,
+      product_quantity: req.body.product_quantity,
       product_price: req.body.product_price,
       imageURL: req.body.imageURL,
     };
@@ -89,6 +90,7 @@ router.post("/addToCart/:userId", async (req, res) => {
         productId: productId,
         product_name: req.body.product_name,
         product_category: req.body.product_category,
+        product_quantity: req.body.product_quantity,
         product_price: req.body.product_price,
         imageURL: req.body.imageURL,
         quantity: 1,

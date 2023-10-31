@@ -58,7 +58,7 @@ export default {
       },
     },
     fontFamily: {
-      logo: ["Barriecito"],
+      logo: ["Lilita One"],
     },
   },
   plugins: [require("tailwind-scrollbar")],

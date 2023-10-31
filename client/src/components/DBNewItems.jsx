@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { statuses } from "../utils/styles";
+import { quantities, statuses } from "../utils/styles";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import {
   deleteObject,
@@ -25,6 +25,7 @@ const DBNewItems = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [quantity, setQuantity] = useState(null);
   const [progress, setProgress] = useState(null);
   const [imageDownloadUrl, setImageDownloadUrl] = useState(null);
 
@@ -81,6 +82,7 @@ const DBNewItems = () => {
       product_name: itemName,
       product_category: category,
       product_price: price,
+      product_quantity: quantity,
       imageURL: imageDownloadUrl,
     };
     addNewProduct(data).then((res) => {
@@ -93,6 +95,7 @@ const DBNewItems = () => {
       setPrice("");
       setImageDownloadUrl(null);
       setCategory(null);
+      setQuantity(null);
     });
     getAllProducts().then((data) => {
       dispatch(setAllProducts(data));
@@ -100,7 +103,7 @@ const DBNewItems = () => {
   };
   return (
     <div className="flex items-center justify-center flex-col pt-6 px-24 w-full ">
-      <div className="border border-gray-300 rounded-md p-4 w-full flex flex-col items-center justify-center gap-4  ">
+      <div className="border bg-blue-400 border-gray-300 rounded-md p-4 w-full flex flex-col items-center justify-center gap-4  ">
         <InputValueField
           type="text"
           placeholder={"Item Name Here"}
@@ -113,10 +116,8 @@ const DBNewItems = () => {
               <p
                 key={data.id}
                 onClick={() => setCategory(data.category)}
-                className={`px-4 py-3 rounded-md text-xl text-white font-semibold cursor-pointer hover:shadow-md border border-gray-200 backdrop-blur-md ${
-                  data.category === category
-                    ? "bg-orange-400"
-                    : "bg-transparent"
+                className={`px-4 py-3  rounded-md text-xl text-white font-semibold cursor-pointer hover:shadow-md border border-gray-200 backdrop-blur-md ${
+                  data.category === category ? "bg-blue-600" : "bg-transparent"
                 }`}
               >
                 {data.title}
@@ -130,6 +131,21 @@ const DBNewItems = () => {
           statFunc={setPrice}
           statevalue={price}
         />
+
+        <div className="w-full flex  items-center justify-around gap-3 flex-wrap">
+          {quantities &&
+            quantities.map((data) => (
+              <p
+                key={data.id}
+                onClick={() => setQuantity(data.quantity)}
+                className={`px-8 py-3 rounded-md text-xl text-white font-semibold cursor-pointer hover:shadow-md border border-gray-200 backdrop-blur-md ${
+                  data.quantity === quantity ? "bg-blue-600" : "bg-transparent"
+                }`}
+              >
+                {data.title}
+              </p>
+            ))}
+        </div>
 
         <div className="w-full bg-card backdrop-blur-md h-370 rounded-md border-2 border-dotted border-gray-300 cursor-pointer">
           {isLoading ? (
@@ -229,7 +245,7 @@ export const InputValueField = ({
         placeholder={placeholder}
         value={statevalue}
         onChange={(e) => statFunc(e.target.value)}
-        className=" w-full px-4 py-3 bg-cardOverlay text-white shadow-md outline-none rounded-md border-collapse border-gray-200 focus:border-red-400"
+        className=" w-full px-4 py-3  text-black shadow-md outline-none rounded-md border-collapse border-gray-200 focus:border-red-400"
       />
     </>
   );

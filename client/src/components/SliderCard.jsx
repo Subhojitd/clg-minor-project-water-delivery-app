@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { buttonClick } from "../animations";
-import { IoBasket } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewItemToCart, getAllCartItems } from "../api";
 import { alertSuccess, alertNull } from "../context/actions/alertActions";
@@ -16,7 +15,6 @@ const SliderCard = ({ data, index }) => {
     dispatch(alertSuccess("Item added to cart"));
     addNewItemToCart(user?.user_id, data).then((res) => {
       getAllCartItems(user?.user_id).then((items) => {
-        console.log(items);
         dispatch(setCartItems(items));
       });
       setInterval(() => {
@@ -26,7 +24,7 @@ const SliderCard = ({ data, index }) => {
   };
 
   return (
-    <div className="bg-textColor hover:drop-shadow-lg backdrop-blur-md rounded-xl flex items-center justify-between relative pr-4  w-full md:w-340 gap-3">
+    <div className="bg-white hover:drop-shadow-lg backdrop-blur-md rounded-xl flex items-center justify-between relative pr-4  w-full md:w-340 gap-3">
       <img
         src={data.imageURL}
         className=" rounded-l-lg w-[50%] h-40 object-cover"
@@ -37,13 +35,16 @@ const SliderCard = ({ data, index }) => {
         <p className="text-lg font-semibold text-red-700 ">
           ₹ {parseFloat(data.product_price).toFixed(2)}
         </p>
+        <p className="text-lg font-semibold text-green-600 ">
+          Qty: {data.product_quantity}
+        </p>
 
         <motion.div
           onClick={sendToCart}
           {...buttonClick}
-          className="w-full h-8 rounded-full bg-orange-500 flex items-center gap-2 justify-center cursor-pointer font-semibold"
+          className="w-full text-white h-8 rounded-full bg-sky-500 flex items-center gap-2 justify-center cursor-pointer font-semibold"
         >
-          Add to Cart <BiCart className="text-2xl text-textColor" />
+          Add to Cart <BiCart className="text-2xl text-white" />
         </motion.div>
       </div>
     </div>
