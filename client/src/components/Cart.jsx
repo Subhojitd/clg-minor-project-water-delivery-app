@@ -56,7 +56,7 @@ const Cart = () => {
           className="cursor-pointer"
           onClick={() => dispatch(setCartOff())}
         >
-          <BiChevronsRight className="text-[50px] text-orange-500" />
+          <BiChevronsRight className="text-[50px] text-sky-500" />
         </motion.i>
         <p className="text-3xl text-black font-semibold ">Your Cart</p>
         <motion.i {...buttonClick} className="cursor-pointer">
@@ -77,14 +77,14 @@ const Cart = () => {
             <div className="bg-zinc-800 rounded-t-[60px] w-full h-[35%] flex flex-col items-center justify-center px-4 py-6 gap-24">
               <div className=" w-full flex items-center justify-evenly">
                 <p className="text-3xl text-zinc-500 font-semibold">Total</p>
-                <p className="text-3xl text-orange-500 fw-semibold ">
+                <p className="text-3xl text-sky-500 fw-semibold ">
                   <span className="text-primary "> ₹ </span> {total}
                 </p>
               </div>
 
               <motion.button
                 {...buttonClick}
-                className="bg-orange-400 w-[70%] px-4 py-3 text-xl text-textColor font-semibold hover:bg-orange-500 drop-shadow-md  rounded-2xl"
+                className="bg-sky-400 w-[70%] px-4 py-3 text-xl text-textColor font-semibold hover:bg-sky-500 drop-shadow-md  rounded-2xl"
                 onClick={handleCheckOut}
               >
                 Check Out
